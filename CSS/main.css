@@ -1,16 +1,18 @@
 body{
   margin: 0;
-  padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
 #navbar {
   width: 100%;
   height: 32px;
   overflow: hidden;
+  border: 2px white;
+  box-shadow: 2px 2px 4px #787878;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 ul {
@@ -33,33 +35,43 @@ li {
   
   li a:hover {
     background-color:rgb(255, 165, 0);
+    border-radius: 15px;
   }
 
 .section {
-  /* settings for older browsers so divs will take up full screen*/
-  min-height: 100%;
-  width: 100%;
-  
   /*settings so divs will take up full screen*/
   min-height: 100vh;
   width: 100vw;
-  float: left;
-  clear: both;
-  padding: 10px
+  padding: 50px
 }
 h1{
   font-size: 130px;
   color: rgb(178, 18, 67);
+  text-shadow: 2px 2px 4px #787878;
   margin: auto;
 }
+
+#blurb {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    margin: auto;
+    padding-bottom: 130px;
+    text-align: center;
+}
+
 p {
+  font-family: 'Istok Web', sans-serif;
   font-size: 25px;
   margin: auto;
   padding-bottom: 130px;
+  text-align: justify;
 }
+
 .headings {
   font-size: 45px;
-  color: rgb(128, 128, 128);
+}
+span {
+  text-decoration-color: rgb(255, 165, 0)
 }
 
 #one {
@@ -77,8 +89,13 @@ p {
     "hello hello"
     "bio picture";
 }
-#hello {grid-area: hello;}
+#hello {grid-area: hello;
+  color: rgb(178, 18, 67);
+}
 
+.text {
+  color: rgb(255, 165, 0);
+}
 img {
   justify-self: center;
   border-radius: 20%;
@@ -86,18 +103,10 @@ img {
   height: auto;
   opacity: 1.0;
   filter: alpha(opacity=100); /* For IE8 and earlier */
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%); 
-}
-img:hover {
-  justify-self: center;
-  border-radius: 20%;
-  width: 400px;
-  height: auto;
-  opacity: 1.0;
-  filter: alpha(opacity=100); /* For IE8 and earlier */
-  webkit-filter: saturate(1); /* Safari 6.0 - 9.0 */
   filter: saturate(1);
+}
+#projects {
+  color: rgb(255, 165, 0);
 }
 
 #three {
@@ -125,10 +134,12 @@ img:hover {
   margin: 20px;
   border-radius: 25px;
   padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 #card-two {
   justify-self: center;
-  background-color:rgb(255, 165, 0);
+  background-color:rgb(178, 18, 67);
   width: 60%;
   height: 70%;
   margin: 20px;
@@ -139,6 +150,10 @@ img:hover {
     text-align: center;
     font-size: 25px;
   }
+#description {
+  text-align: center;
+  padding-top: 80px;
+}
   #thumbnail-one {
     width: 200px;
     height: 100px;
@@ -154,9 +169,38 @@ img:hover {
     margin: auto; 
     display: block;
   }
+#contact {
+    color: rgb(178, 18, 67);
+}
 #links {
-    align-self: center;
-    font-size: 80px;
-    margin: auto;
-    color: gray; /*why won't the clickable links turn gray?*/
-  }
+  font-size: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 100px 10px;
+    margin-top: 100px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+    margin-left: 10px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+#twitter {
+  color: rgb(0, 128, 128);
+}
+
+#linkedin {
+  color: rgb(255, 165, 0);
+}
+
+#github {
+  color: rgb(178, 18, 67);
+}
+
+#codepen {
+  color: rgb(255, 165, 0);
+}
+
+#email {
+  color: rgb(0, 128, 128);
+}
