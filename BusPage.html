@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="css/main.css">
+    <!--<link rel="stylesheet" href="css/main.css">-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
     <title>Public School Buses</title>
@@ -14,40 +14,52 @@
 </head>
     
 <body>
+    
 <style>
   .bar:hover {
     fill: brown;
   }
-  body {
-    height: 400px;
-    width: 350px;  
-    background-color: aquamarine;
-      margin: 50px;
+  h1 {
+    text-align: center;
   }
+  
 </style>
+<h1>School Bus Delays in New York City Public Schools</h1>
+
   <script>
-    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    const dataset = [63184, 83141, 89434, 73956];
     
-    const w = 500;
-    const h = 100;
+    const w = 800;
+    const h = 500;
+    const bargap = 20;
+    const padding = 50;
+    const barwidth = ((w-padding-bargap)/dataset.length)-bargap;
+    
+    const yScale = d3.scaleLinear()
+        .domain([0, d3.max(dataset, (d) => d)])
+        .range([h, 0]);
     
     const svg = d3.select("body")
-                  .append("svg")
-                  .attr("width", w)
-                  .attr("height", h);
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
     
     svg.selectAll("rect")
        .data(dataset)
        .enter()
        .append("rect")
-       .attr("x", (d, i) => i * 30)
-       .attr("y", (d, i) => h - 3 * d)
-       .attr("width", 25)
+       .attr("x", (d, i) => bargap + i * (barwidth + bargap) + padding)
+       .attr("y",(d) => yScale(d))
+       .attr("width", barwidth)
        .attr("height", (d, i) => d * 3)
        .attr("fill", "navy")
        .attr("class", "bar")
        .append("title")
         .text((d => d));
-    
+
+        svg.append("g")
+        .attr("transform", "translate(50 0)")
+        .call(d3.axisLeft().scale(yScale));
+
   </script>
 </body>
