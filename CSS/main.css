@@ -113,6 +113,11 @@ img {
 }
 #projects {grid-area: projects;}
 
+i {
+  color: black;
+  padding-top: 40px;
+}
+
 #four {
   /*background-color: orange;*/
   display: flex;
@@ -128,7 +133,7 @@ img {
   border-radius: 25px;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  text-align: center;
 }
 #card-two {
   justify-self: center;
@@ -139,6 +144,7 @@ img {
   border-radius: 25px;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 
 }
 h3 {
@@ -149,21 +155,21 @@ h3 {
   text-align: center;
   padding-top: 80px;
 }
-#thumbnail-one {
+/*#thumbnail-one {
   width: 200px;
   height: 100px;
   background: gray;
   margin: auto;
   display: block;
-}
+}*/
 
-#thumbnail-two {
+/*#thumbnail-two {
   width: 200px;
   height: 100px;
   background: gray;
   margin: auto; 
   display: block;
-}
+}*/
 #contact {
     color: rgb(178, 18, 67);
 }
@@ -180,19 +186,34 @@ h3 {
 #twitter {
   color: rgb(0, 128, 128);
 }
+#twitter:hover {
+  color: rgb(178,18,67);
+}
 
 #linkedin {
   color: rgb(255, 165, 0);
 }
+#linkedin:hover {
+  color: rgb(178,18,67);
+}
 
 #github {
-  color: rgb(178, 18, 67);
+  color: rgb(0, 128, 128);
+}
+#github:hover {
+  color: rgb(178, 18, 67)
 }
 
 #codepen {
   color: rgb(255, 165, 0);
 }
+#codepen:hover {
+  color: rgb(178, 18, 67)
+}
 
 #email {
   color: rgb(0, 128, 128);
+}
+#email:hover {
+  color: rgb(178, 18, 67);
 }
