@@ -8,68 +8,80 @@
     <title>Public School Buses</title>
     <link href="website-profile-pic">
     <link href="fun-photo">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Average|Fjalla+One|Fira+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <style>
 #navbar {
-    width: 100%;
-    height: 64px;
-    overflow: hidden;
-    border: 2px white;
-    box-shadow: 2px 2px 4px #787878;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-      }
-      
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;  
-      }
-      
-    li {
-        display: inline;
-    }
-    
-    li a {
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    }
-      
-    li a:hover {
-    background-color:rgb(172, 84, 209);
-    border-radius: 15px;
-    }
-    </style>   
+  width: 100%;
+  height: 32px;
+  overflow: hidden;
+  border: 2px white;
+  box-shadow: 2px 2px 4px #787878;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 8px;
+    float: right;  
+}
+
+li {
+      display: inline;
+}
+
+li a {
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+li a:hover {
+  background-color: rgb(184, 90, 216);
+  border-radius: 15px;
+}
+</style>   
 
 <header id="navbar">
     <ul>
-    <li><a href="#analysis">analysis</a></li>
-    <li><a href="#about this project">about this project</a></li>
-    <li><a class="active" href="#home">home</a></li>
+    <li><a href="analysisBus.html">analysis</a></li>
+    <li><a href="aboutThisProjectBus.html">about this project</a></li>
+    <li><a class="active" href="index.html">home</a></li>
     </ul>
 </header> 
 
 <body>  
 <style>
   .bar:hover {
-    fill: brown;
+    fill: lightpink;
   }
   h1 {
     text-align: center;
+    font-family: 'Fjalla One', sans-serif;
   } 
+  .barchart {
+    
+  }
+  svg {
+      margin: auto;
+      padding: 20px;
+      display: block;
+      background-color: cadetblue;
+      font-family: 'Average', serif;
+      border-radius: 30px;
+  }
 </style>
 
-<h1>School Bus Delays in New York City Public Schools</h1>
-
+<h1>Count of School Bus Delays in NYC Public Schools</h1>
+<div class="barchart"></div>
   <script>
     const dataset = [
         ["2015-16", 63184], 
@@ -88,7 +100,7 @@
         .domain([0, d3.max(dataset, (d) => d[1])])
         .range([h-padding, 0]);
     
-    const svg = d3.select("body")
+    const svg = d3.select(".barchart")
         .append("svg")
         .attr("width", w)
         .attr("height", h);
@@ -111,8 +123,8 @@
         .data(dataset)
         .enter()
         .append("text")
-        .attr("x", (d, i) => bargap + i * (barwidth + bargap) + padding)
-        .attr("y", h)
+        .attr("x", (d, i) => 3.5 * bargap + i * (barwidth + bargap) + padding)
+        .attr("y", h - padding/2)
         // .attr("dy", ".35em")
         .text(function(d, i) { return d[0]; });  
 
@@ -120,7 +132,5 @@
     svg.append("g")
         .attr("transform", "translate(50 0)")
         .call(d3.axisLeft().scale(yScale));
-
-
     </script>
 </body>
